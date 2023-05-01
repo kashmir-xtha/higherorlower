@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HigherOrLower</title> 
     <style>
-        /*Backgroundcolor: #E5DFBF*/
+        :root{
+            --overlayColor : #ff1a1a;
+            --bgColor: #E5DFBF;
+        }
         *{
             user-select: none;
             box-sizing:border-box;
@@ -17,7 +20,7 @@
             font-size: 16px;
         }
         body{
-            background: #E5DFBF;
+            background: var(--bgColor);
             font-family:"Bahnschrift";
             padding: 5px;
             position: relative;
@@ -88,7 +91,7 @@
             cursor: pointer;
         }
         .overlay h1{
-            background: #ff1a1a;  
+            background: var(--overlayColor);  
             padding-top: 85px;
             letter-spacing: -1.5px;
         }
@@ -98,7 +101,7 @@
             place-items: center;
         }
         .overlay .score{
-            background: #ff1a1a; 
+            background: var(--overlayColor); 
             margin-top: 225px;
             font-size: 1.75rem;
             font-weight: 600;
@@ -108,7 +111,7 @@
         }
         .overlay h2{
             font-size: 2.25rem;
-            background: #ff1a1a; 
+            background: var(--overlayColor); 
             margin-top: 70px;
             display:grid;
             place-items: center;
