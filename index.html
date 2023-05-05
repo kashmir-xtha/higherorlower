@@ -8,9 +8,9 @@
     <title>HigherOrLower</title> 
     <style>
         :root{
-            --overlayColor : #fa3a3a;
+            --overlayColor : #fc7474;
             --bgColor: #E5DFBF;
-            --winColor : #27E300;
+            --winColor : #7afc60;
         }
         *{
             user-select: none;
@@ -59,9 +59,8 @@
         }
         .key{
             border: 3px solid black;
-            padding:  5px 10px;
-            font-size: 2rem;
-            margin: 10px;
+            padding:  0.3125rem 0.625rem;
+            font-size: 1.95rem;
             letter-spacing: -1.5px;
             cursor: pointer;
             box-shadow: 4px 4px 0px #666;
@@ -132,7 +131,8 @@
             display:none;
             justify-content: center;
             align-items: center;
-            font-size: 1.65rem;
+            font-size: 1.55rem;
+            font-stretch: ultra-expanded;
             font-weight: 900;
             z-index: 999999;
         }
@@ -171,7 +171,7 @@
  <!-- script start -->
     <script>
         let w = window.innerWidth;
-        if(w <= 400){
+        if(w <= 350){
             document.querySelector('.notSupported').style.display = 'flex';
         }
         function numGenerator(){
