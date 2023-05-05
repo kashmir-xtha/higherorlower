@@ -10,7 +10,7 @@
         :root{
             --overlayColor : #fc7474;
             --bgColor: #E5DFBF;
-            --winColor : #7afc60;
+            --winColor : #7fff66;
         }
         *{
             user-select: none;
@@ -71,6 +71,7 @@
             box-shadow: 0px 0px 0px #666;
         }
         .counter{
+            margin-inline: 0.625rem;
             font-size: 14rem;
             width: 8.125rem;
             text-align: center;
@@ -171,7 +172,7 @@
  <!-- script start -->
     <script>
         let w = window.innerWidth;
-        if(w <= 350){
+        if(w <= 365){
             document.querySelector('.notSupported').style.display = 'flex';
         }
         function numGenerator(){
