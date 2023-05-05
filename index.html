@@ -8,8 +8,9 @@
     <title>HigherOrLower</title> 
     <style>
         :root{
-            --overlayColor : #ff1a1a;
+            --overlayColor : #fa3a3a;
             --bgColor: #E5DFBF;
+            --winColor : #27E300;
         }
         *{
             user-select: none;
@@ -43,7 +44,7 @@
             padding: 8px 5px 5px;
         }
         .main{
-            margin-top: 30px;
+            margin: 30px 0 20px;
             display: flex;
             justify-content:center;
             align-items: center;
@@ -71,7 +72,9 @@
             box-shadow: 0px 0px 0px #666;
         }
         .counter{
-            font-size: 15rem;
+            font-size: 14rem;
+            width: 8.125rem;
+            text-align: center;
         }
         .highscore{
             display: grid;
@@ -82,6 +85,7 @@
             letter-spacing: -1px;
         }
         .overlay{
+            z-index: 1;
             position:absolute;
             top: 0;
             left: 0;
@@ -103,7 +107,7 @@
         }
         .overlay .score{
             background: var(--overlayColor); 
-            margin-top: 225px;
+            margin-top: 14.125rem;
             font-size: 1.75rem;
             font-weight: 600;
             letter-spacing: -1px;
@@ -113,20 +117,33 @@
         .overlay h2{
             font-size: 2.25rem;
             background: var(--overlayColor); 
-            margin-top: 70px;
+            margin-top: 4.375rem;
             display:grid;
             place-items: center;
             letter-spacing: -.75px;
         }
-        @media (max-width: 768px){
+        .notSupported{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left:0;
+            background-color: var(--bgColor);
+            display:none;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.65rem;
+            font-weight: 900;
+            z-index: 999999;
+        }
+        @media (max-width: 1280px){
             html{
                 font-size: 14px;
             }
-            .overlay .score{
-                margin-top: 200px;
-            }
-            .overlay h2{
-                margin-top: 60px;
+        }
+        @media (max-width: 500px){
+            html{
+                font-size: 13px;
             }
         }
     </style>
@@ -147,14 +164,22 @@
         <div class="score" id="score">Score:</div>
         <h2>Click To Play Again</h2>
     </div>
+    <!-- not show that the site does not support screen size with width: 400px or less  -->
+    <div class="notSupported">
+        DEVICE NOT SUPPORTED! T_T
+    </div>
  <!-- script start -->
     <script>
+        let w = window.innerWidth;
+        if(w <= 400){
+            document.querySelector('.notSupported').style.display = 'flex';
+        }
         function numGenerator(){
             return Math.floor(Math.random()*9 + 1);
         }
         function gameOver(score){
             count = 0;
-            document.body.style.backgroundColor = "#ff1a1a";
+            document.body.style.backgroundColor = "var(--overlayColor)";
             document.getElementById('score').innerHTML = `Score: ${score}`;
             document.querySelector('.overlay').style.display = 'block';
         }
@@ -181,7 +206,7 @@
                 if(key.textContent == "HIGHER ↑"){
                     if(num2 > num1){
                         count += 1;
-                        document.body.style.backgroundColor = "#27E300";
+                        document.body.style.backgroundColor = "var(--winColor)";
                     }
                     else{
                         gameOver(score);
@@ -191,7 +216,7 @@
                 else{
                     if (num2 < num1){
                         count += 1;
-                        document.body.style.backgroundColor = "#27E300";
+                        document.body.style.backgroundColor = "var(--winColor)";
                     }
                     else{
                         gameOver(score);
